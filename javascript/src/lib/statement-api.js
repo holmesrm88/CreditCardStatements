@@ -1,4 +1,4 @@
-import chargeList from '../config/charges.js';
+import chargeList from '../config/charges';
 
 class StatementApi {
   static getCharges() {

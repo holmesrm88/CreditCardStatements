@@ -1,9 +1,10 @@
 module.exports = {
   moduleDirectories: ['node_modules', 'js'],
-  moduleFileExtensions: ['js', 'jsx', 'json'],
+  moduleFileExtensions: ['js'],
+  resetMocks: true,
   restoreMocks: true,
   testMatch: ['<rootDir>/**/*.test.js'],
   transform: {
-    '^.+\\.jsx?$': 'babel-jest'
+    '^.+\\.js$': 'babel-jest'
   }
 };

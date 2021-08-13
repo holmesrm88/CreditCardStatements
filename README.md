@@ -1,32 +1,35 @@
 # Recurring Charges Exercise
 
 ## Summary
-This application reads a list of charges on your credit card and then tells you which charges are recurring.
+This application parses a list of charges on a credit card statement and returns which charges are recurring.
 
 ## Requirements
-### Display Recurring Charges
-* return the number of charges for each service
-  * filter out charges that are not recurring
-* return the amount of the recurring charge for each service
+### Get Recurring Charges
+* Return the number of charges for each merchant
+  * Filter out one-time charges
+* Return the charge amount of the recurring charge for each merchant
 
 #### Inputs
 An array of charges with the following attributes:
 * `name` - A string that shows who the charge is coming from
 * `date` - The date on which the charge occurred
 * `amount` - The amount of money that the charge is for
+* `user` - Who made the purchase
 
 *Example Format:*
 ```javascript
 [{
-  name: 'NextCapital Premium',
-  date: '01/01/2019',
-  amount: 9.99
+  name: 'Netflix',
+  date: '2019/01/01',
+  amount: 9.99,
+  user: 'John Patterson'
 },
 // ...
 {
   name: 'Spotify',
-  date: '12/01/2019',
-  amount: 12.99
+  date: '2019/12/01',
+  amount: 12.99,
+  user: 'John Patterson'
 }]
 ```
 
@@ -39,6 +42,6 @@ An object containing:
 ```javascript
 {
   Spotify: 12,
-  'NextCapital Premium': 4
+  Netflix: 4
 }
 ```
