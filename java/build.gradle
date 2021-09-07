@@ -17,7 +17,7 @@ version '1.0-SNAPSHOT'
 allprojects {
 
     apply plugin: 'java'
-    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -40,23 +40,17 @@ allprojects {
         /**
          * JUnit Jupiter as a testing framework.
          */
-        testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.1'
-
-
-        /**
-         * JUnit Jupiter testing engine.
-         */
-        testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
+        testImplementation("org.junit.jupiter:junit-jupiter:5.6.1")
 
         /**
          * Mockito for mocking.
          */
-        testCompile group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
+        testImplementation("org.mockito:mockito-core:3.3.3")
 
         /**
          * Powermock for mocking.
          */
-		testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.9'
+        testImplementation("org.powermock:powermock-api-mockito2:2.0.9")
 		
     }
 

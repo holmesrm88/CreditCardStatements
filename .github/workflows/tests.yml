@@ -1,0 +1,53 @@
+name: Tests
+on: [push]
+
+jobs:
+  ruby_tests:
+    name: Ruby Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5
+          bundler-cache: true
+          working-directory: ruby
+      - run: bundle exec rspec -e "sums the charges that occur more than once" --format RSpec::Github::Formatter
+        working-directory: ruby
+  javascript_tests:
+    name: Javascript Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: javascript
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+          cache-dependency-path: javascript/package-lock.json
+      - run: npm install
+      - run: npm test -i test/health-check.test.js
+  python_tests:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - run: python test.py TestChargeService.test_sums_the_charges_that_occur_more_than_once
+        working-directory: python
+  java_tests:
+    name: Java Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+        cache: 'gradle'
+    - run: ./gradlew test --tests ChargeServiceTest.testSumsTheChargesThatOccurMoreThanOnce
+      working-directory: java

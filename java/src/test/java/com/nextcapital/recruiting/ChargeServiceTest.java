@@ -29,20 +29,20 @@ public class ChargeServiceTest {
 
 	@Test
 	public void testDoesNotIncludeChargesThatOnlyOccurOnce() {
-		addCharge("Spotify", "1/1/2019", 9.99);
+		addCharge("Spotify", "1/1/2019", "9.99");
 
 		assertFalse(service.getRecurringCharges().containsKey("Spotify"));
 	}
 
 	@Test
 	public void testSumsTheChargesThatOccurMoreThanOnce() {
-		addCharge("Spotify", "1/1/2019", 9.99);
-		addCharge("Spotify", "2/1/2019", 9.99);
+		addCharge("Spotify", "1/1/2019", "9.99");
+		addCharge("Spotify", "2/1/2019", "9.99");
 
 		assertTrue(service.getRecurringCharges().get("Spotify") == 2);
 	}
 
-	private void addCharge(String name, String date, Double amount) {
+	private void addCharge(String name, String date, String amount) {
 		Map<String, String> statementCharge = new HashMap<>();
 		statementCharge.put("name", name);
 		statementCharge.put("date", date);
