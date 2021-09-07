@@ -1,20 +1,27 @@
 {
-  "name": "javascript",
-  "version": "1.0.0",
-  "description": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=12.13.1",
+    "npm": ">=6.13.0"
+  },
   "scripts": {
+    "ci": "npm run lint && npm run test",
+    "lint": "npm run lint:js && npm run lint:spelling",
+    "lint:js": "eslint \"src/**/*.{js,jsx}\" \"test/**/*.{js,jsx}\" --cache",
+    "lint:spelling": "cspell \"src/**/*.{js,jsx}\" \"test/**/*.{js,jsx}\"",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/register": "^7.0.0",
-    "jest": "^24.5.0",
-    "lodash": "^4.17.11"
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "cspell": "^4.2.8",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "jest": "^27.0.6"
   }
 }

@@ -1,0 +1,28 @@
+{
+  "allowCompoundWords": true,
+  "ignoreWords": [
+    "ATX",
+    "CDN",
+    "RK",
+    "SSN",
+    "USD",
+    "UX",
+
+    "argify",
+    "camelize",
+    "camelizes",
+    "devtool",
+    "embeddable",
+    "enqueues",
+    "errored",
+    "favicons",
+    "num",
+    "pascalize",
+    "plannable",
+    "unioned",
+    "unmap",
+    "unmount",
+    "usr"
+  ],
+  "minWordLength": 2
+}

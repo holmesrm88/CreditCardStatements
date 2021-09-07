@@ -1,23 +1,23 @@
 import unittest
 from unittest.mock import MagicMock
 
-from app.unsubscribe_service import UnsubscribeService
+from app.charge_service import ChargeService
 from app.statement_api import StatementAPI
 
-class TestUnsubscribeService(unittest.TestCase):
+class TestChargeService(unittest.TestCase):
 
     def test_does_not_include_charges_that_only_occur_once(self):
         mock = MagicMock()
         mock.return_value = [
             {
                 "name": "Spotify",
-                "date": "1/1/2019",
-                "amount": "9.99"
+                "date": "2019/01/01",
+                "amount": 9.99
             }
         ]
         StatementAPI.get_charges = mock
 
-        result = UnsubscribeService.display_recurring_charges()
+        result = ChargeService.get_recurring_charges()
         key_presence = "Spotify" in result
         self.assertEqual(key_presence, False)
 
@@ -26,18 +26,18 @@ class TestUnsubscribeService(unittest.TestCase):
         mock.return_value = [
             {
                 "name": "Spotify",
-                "date": "1/1/2019",
-                "amount": "9.99"
+                "date": "2019/01/01",
+                "amount": 9.99
             },
             {
                 "name": "Spotify",
-                "date": "2/1/2019",
-                "amount": "9.99"
+                "date": "2019/02/01",
+                "amount": 9.99
             }
         ]
         StatementAPI.get_charges = mock
 
-        result = UnsubscribeService.display_recurring_charges()
+        result = ChargeService.get_recurring_charges()
         self.assertEqual(result["Spotify"], 2)
 
 if __name__ == '__main__':

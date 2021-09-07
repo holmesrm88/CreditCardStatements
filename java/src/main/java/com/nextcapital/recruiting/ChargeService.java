@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UnsubscribeService {
+public class ChargeService {
 	private StatementApi statementApi;
 
-	public UnsubscribeService(StatementApi statementApi) {
+	public ChargeService(StatementApi statementApi) {
 		this.statementApi = statementApi;
 	}
 
-	public Map<String, Integer> displayRecurringCharges() {
+	public Map<String, Integer> getRecurringCharges() {
 		Map<String, Integer> billStatement = new HashMap<>();
 		Map<String, Integer> recurringCharges = new HashMap<>();
 

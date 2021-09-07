@@ -1,8 +1,8 @@
-import chargeList from '../config/charges.js';
+import exampleData from '../config/example-data';
 
 class StatementApi {
   static getCharges() {
-    return chargeList.charges;
+    return exampleData.charges;
   }
 }
 

@@ -1,7 +1,7 @@
 from app.statement_api import StatementAPI
 
-class UnsubscribeService:
-    def display_recurring_charges():
+class ChargeService:
+    def get_recurring_charges():
         recurring_charges = {}
         bill_statement = {}
 
