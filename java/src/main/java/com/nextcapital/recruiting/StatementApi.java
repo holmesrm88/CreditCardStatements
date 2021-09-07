@@ -12,7 +12,7 @@ public class StatementApi {
 		Map<String, String> firstStatementCharge = new HashMap<>();
 		firstStatementCharge.put("name", "Spotify");
 		firstStatementCharge.put("date", "1/1/2019");
-		firstStatementCharge.put("amount", 9.99);
+		firstStatementCharge.put("amount", "9.99");
 		statementCharges.add(firstStatementCharge);
 
 		return statementCharges;

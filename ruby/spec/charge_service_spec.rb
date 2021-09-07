@@ -28,7 +28,7 @@ describe ChargeService do
     end
 
     it "does not include charges that only occur once" do
-      create_charge("Spotify", sample_date, 9.99)
+      create_charge("Spotify", "2020/01/01", 9.99)
 
       charges = subject.get_recurring_charges
 
