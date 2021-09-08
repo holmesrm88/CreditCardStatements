@@ -130,11 +130,11 @@ Run `npm test` to run the test suite
 
 ### Installation
 
-* `cd java && gradle build`
+* `cd java && ./gradlew build`
 
 ### Tests
 
-Run `gradle test` to run the test suite
+Run `./gradlew test` to run the test suite
 
 ## Python
 
