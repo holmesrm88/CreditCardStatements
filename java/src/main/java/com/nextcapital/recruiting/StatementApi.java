@@ -10,10 +10,20 @@ public class StatementApi {
 		List<Map<String, String>> statementCharges = new ArrayList<>();
 
 		Map<String, String> firstStatementCharge = new HashMap<>();
+		Map<String, String> secondStatementCharge = new HashMap<>();
+		Map<String, String> thirdStatementCharge = new HashMap<>();
 		firstStatementCharge.put("name", "Spotify");
 		firstStatementCharge.put("date", "1/1/2019");
 		firstStatementCharge.put("amount", "9.99");
+		secondStatementCharge.put("name", "Spotify");
+		secondStatementCharge.put("date", "2/1/2019");
+		secondStatementCharge.put("amount", "9.99");
+		thirdStatementCharge.put("name", "Netflix");
+		thirdStatementCharge.put("date", "2/1/2019");
+		thirdStatementCharge.put("amount", "8.99");
 		statementCharges.add(firstStatementCharge);
+		statementCharges.add(secondStatementCharge);
+		statementCharges.add(thirdStatementCharge);
 
 		return statementCharges;
 	}

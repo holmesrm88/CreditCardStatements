@@ -29,9 +29,9 @@ public class ChargeServiceTest {
 
 	@Test
 	public void testDoesNotIncludeChargesThatOnlyOccurOnce() {
-		addCharge("Spotify", "1/1/2019", "9.99");
+		addCharge("Netflix", "1/1/2019", "9.99");
 
-		assertFalse(service.getRecurringCharges().containsKey("Spotify"));
+		assertFalse(service.getRecurringCharges().contains("Netflix"));
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class ChargeServiceTest {
 		addCharge("Spotify", "1/1/2019", "9.99");
 		addCharge("Spotify", "2/1/2019", "9.99");
 
-		assertTrue(service.getRecurringCharges().get("Spotify") == 2);
+		assertTrue(service.getRecurringCharges().get(0).getOccurrance() == 2);
 	}
 
 	private void addCharge(String name, String date, String amount) {
